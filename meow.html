@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yes or No Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #no {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Do you like this program?</h2>
+        <button onclick="answer('Yes')">Yes</button>
+        <button id="no" onmouseover="moveButton()">No</button>
+        <p id="response"></p>
+        <p id="extraText" style="display: none;">Thank you for your response! You're awesome! 😊</p>
+        <h1><p id="extraText2" style="display: none;">Now open the game and cry with me !!! 😊</p></h1>
+    </div>
+    <script>
+        function answer(response) {
+            if (response === 'Yes') {
+                document.getElementById("response").innerText = "You selected: " + response;
+                document.getElementById("extraText").style.display = "block";
+                document.getElementById("extraText2").style.display = "block";
+            }
+        }
+        function moveButton() {
+            let noButton = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+    </script>
+</body>
+</html>
